@@ -37,6 +37,25 @@ android {
         targetSdkVersion 31
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    buildTypes {
+        release {
+            // Enables code shrinking, obfuscation, and optimization for only
+            // your project's release build type.
+            //minifyEnabled true
+
+            // Enables resource shrinking, which is performed by the
+            // Android Gradle plugin.
+            //shrinkResources true
+
+            // Includes the default ProGuard rules files that are packaged with
+            // the Android Gradle plugin. To learn more, go to the section about
+            // R8 configuration files.
+            proguardFiles getDefaultProguardFile(
+                    'proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {
@@ -45,5 +64,6 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:2.2.6"
     implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    //implementation 'com.quickbirdstudios:opencv:4.3.0'
     api 'com.github.davidmigloz:opencv-android-gradle-repo:3.3.0'
 }
